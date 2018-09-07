@@ -1,0 +1,12 @@
+class CreateQuestion < ActiveRecord::Migration[5.1]
+  def change
+    create_table :questions do |t|
+      t.text :body, null: false
+      t.integer :poll_id, null: false
+
+      t.timestamp
+    end
+
+    add_index :questions, :poll_id
+  end
+end
